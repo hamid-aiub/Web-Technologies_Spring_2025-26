@@ -9,12 +9,21 @@ $hasPasswordError = true;
 echo "<h1>Hello Mr, $username</h1>";
 echo "<h3>We know your password...$password, right?</h3>";
 
-if(!$username){
-    $_SESSION["usernameErr"] = "Username is required";
-    $hasUsernameError = true;
-}else{
-    unset($_SESSION["usernameErr"]);
+// if(!$username){
+//     $_SESSION["usernameErr"] = "Username is required";
+//     $hasUsernameError = true;
+// }else{
+//     unset($_SESSION["usernameErr"]);
+//     $hasUsernameError = false;
+// }
+
+if(!isset($_POST["username"])){
+     unset($_SESSION["usernameErr"]);
     $hasUsernameError = false;
+    
+}else{
+   $_SESSION["usernameErr"] = "Username is required";
+    $hasUsernameError = true;
 }
 
 if(!$password){
